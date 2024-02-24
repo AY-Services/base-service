@@ -20,10 +20,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name="PARTNERANALYSISGROUP1")
-public class PartnerAnalysisGroup1 extends BaseEntity {
+public class PartnerAnalysisGroup extends BaseEntity {
     @Id
-    @Column(name="PARTNERANALYSISGROUP1_CODE")
-    private String partnerAnalysisGroup1Code;
+    @Column(name="PARTNERANALYSISGROUP_CODE")
+    private String partnerAnalysisGroupCode;
 
     @Column(name="NAME")
     private String name;

@@ -9,7 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
+import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
@@ -46,48 +47,15 @@ public class Product extends BaseEntity {
     @Column(name="CURRENCY_CODE")
     private String currencyCode	;
 
-    @JoinColumn(name="BRAND_CODE", 		referencedColumnName="brandCode")
+    @JoinColumn(name="BRAND_CODE", 		referencedColumnName="BRAND_CODE")
     @OneToOne
     private Brand brand;
 
-    @JoinColumn(name="PRODUCTPAGE_CODE", 		referencedColumnName="productPageCode")
-    @OneToOne
-    private ProductPage productPage;
-
-    @JoinColumn(name="PRODUCTSALESGROUP_CODE", 		referencedColumnName="productSalesGroupCode")
-    @OneToOne
-    private ProductSalesGroup productSalesGroup;
-
-    @JoinColumn(name="PRODUCTLOGISTICGROUP_CODE", 		referencedColumnName="productLogisticGroupCode")
-    @OneToOne
-    private ProductLogisticGroup productLogisticGroup;
-
-    @JoinColumn(name="PRODUCTANALYSISGROUP1_CODE", 		referencedColumnName="productAnalysisGroup1Code")
-    @OneToOne
-    private ProductAnalysisGroup productAnalysisGroup1;
-
-    @JoinColumn(name="PRODUCTANALYSISGROUP2_CODE", 		referencedColumnName="productAnalysisGroup2Code")
-    @OneToOne
-    private ProductAnalysisGroup productAnalysisGroup2;
-
-    @JoinColumn(name="PRODUCTANALYSISGROUP3_CODE", 		referencedColumnName="productAnalysisGroup3Code")
-    @OneToOne
-    private ProductAnalysisGroup productAnalysisGroup3;
-
-    @JoinColumn(name="PRODUCTANALYSISGROUP4_CODE", 		referencedColumnName="productAnalysisGroup4Code")
-    @OneToOne
-    private ProductAnalysisGroup productAnalysisGroup4;
-
-    @JoinColumn(name="PRODUCTANALYSISGROUP5_CODE", 		referencedColumnName="productAnalysisGroup5Code")
-    @OneToOne
-    private ProductAnalysisGroup productAnalysisGroup5;
-
-
-    @JoinColumn(name="VAT1_CODE", 		referencedColumnName="vatCode")
+    @JoinColumn(name="VAT1_CODE", 		referencedColumnName="VAT_CODE")
     @OneToOne
     private Vat vat1;
 
-    @JoinColumn(name="VAT2_CODE", 		referencedColumnName="vatCode")
+    @JoinColumn(name="VAT2_CODE", 		referencedColumnName="VAT_CODE")
     @OneToOne
     private Vat vat2;
 
@@ -191,7 +159,7 @@ public class Product extends BaseEntity {
     @Column(name="COLOR_CODE")
     private String colorCode	;
 
-    @Column(name="PHOTO_2", nullable=false)
+    @Column(name="PHOTO_2")
     private String photo	;
 
     @Column(name="DECIMALPRECISION")
@@ -236,41 +204,6 @@ public class Product extends BaseEntity {
 
     @Transient
     private String photo2;
-    //----------------------------------------------------------------------------------------------------------
-
-
-    @JoinColumn(name="PRODUCTCATEGORY_CODE", 		referencedColumnName="productCategoryCode")
-    @OneToOne
-    private ProductCategory productCategory;
-
-    @JoinColumn(name="PRODUCTCATEGORYTYPE_CODE", 		referencedColumnName="productCategoryTypeCode")
-    @OneToOne
-    private ProductCategoryType productCategoryType;
-
-/*
-	@JoinColumns(
-    {
-        @JoinColumn(name="PRODUCTCATEGORY_CODE", 		referencedColumnName="productCategory.productCategoryCode"),
-        @JoinColumn(name="PRODUCTCATEGORYTYPE_CODE", 	referencedColumnName="productCategoryTypeCode"),
-    })
-	private ProductCategoryType productCategoryType;
-
-*/
-
-	/*
-	@Column(name="PRODUCTCATEGORY_CODE", nullable=false)
-	private String	productCategoryCode	;
-
-	@Column(name="PRODUCTCATEGORYType_CODE", nullable=false)
-	private String	productCategoryTypeCode	;
-	*/
-
-    @Transient
-    private List<ProductProductOption> productProductOptions;
-
-
-    @Transient
-    private List<ProductLinkedProduct> productLinkedProducts;
 
     @Transient
     private Double availableQuantity;
@@ -288,5 +221,13 @@ public class Product extends BaseEntity {
     @Transient
     private String photoUrl;
 
+    @PrePersist
+    private void onPrePersist(){
+
+        if(this.getId()== null){
+            this.setId("product_"+ UUID.randomUUID().toString());
+        }
+        this.setCreated_at(new Date());
+    }
 
 }

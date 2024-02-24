@@ -23,7 +23,7 @@ public class PartnerContact extends BaseEntity {
     private String partnerContactCode	;
 
 
-    @JoinColumns({@JoinColumn(name="PARTNERSITE_CODE", referencedColumnName="partnerSiteCode")})
+    @JoinColumns({@JoinColumn(name="PARTNERSITE_CODE", referencedColumnName="PARTNERSITE_CODE")})
     @OneToOne
     private PartnerSite partnerSite;
 

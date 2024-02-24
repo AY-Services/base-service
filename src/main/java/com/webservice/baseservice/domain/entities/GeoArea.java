@@ -19,11 +19,11 @@ public class GeoArea extends BaseEntity {
     @Column(name="NAME", nullable=false)
     private String name	;
 
-    @JoinColumn(name="GEOAREATYPE_CODE", 	referencedColumnName="geoAreaTypeCode")
+    @JoinColumn(name="GEOAREATYPE_CODE", 	referencedColumnName="GEOAREATYPE_CODE")
     @OneToOne
     private GeoAreaType geoAreaType;;
 
-    @JoinColumn(name="UPGEOAREA_CODE", 	referencedColumnName="geoAreaCode")
+    @JoinColumn(name="UPGEOAREA_CODE", 	referencedColumnName="GEOAREA_CODE")
     @OneToOne
     private GeoArea upGeoArea;
 

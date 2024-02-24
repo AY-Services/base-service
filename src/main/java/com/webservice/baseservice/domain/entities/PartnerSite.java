@@ -19,13 +19,12 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name="PARTNERSITE")
 public class PartnerSite extends BaseEntity {
-    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name="PARTNERSITE_CODE")
     private String partnerSiteCode;
 
-    @JoinColumns({@JoinColumn(name="PARTNER_CODE", referencedColumnName="partnerCode")})
+    @JoinColumns({@JoinColumn(name="PARTNER_CODE", referencedColumnName="PARTNER_CODE")})
     @OneToOne
     private Partner partner;
 

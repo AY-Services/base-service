@@ -22,7 +22,7 @@ public class Company extends BaseEntity {
     @Column(name="COMPANY_CODE")
     private String companyCode;
 
-    @JoinColumn(name="CURRENCY_CODE", 	referencedColumnName="currencyCode")
+    @JoinColumn(name="CURRENCY_CODE", 	referencedColumnName="CURRENCY_CODE")
     @OneToOne
     private Currency currency	;
 

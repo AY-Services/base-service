@@ -32,19 +32,19 @@ public class Settlement extends BaseEntity {
     private String settlementCode;
 
 
-    @JoinColumn(name="ROLE_CODE",  referencedColumnName="roleCode")
+    @JoinColumn(name="ROLE_CODE",  referencedColumnName="ROLE_CODE")
     @OneToOne
     private Role role;
 
-    @JoinColumn(name="PERSON_CODE",  referencedColumnName="personCode")
+    @JoinColumn(name="PERSON_CODE",  referencedColumnName="PERSON_CODE")
     @OneToOne
     private Person person;
 
-    @JoinColumn(name="DONEBYROLE_CODE",  referencedColumnName="roleCode")
+    @JoinColumn(name="DONEBYROLE_CODE",  referencedColumnName="ROLE_CODE")
     @OneToOne
     private Role doneByRole;
 
-    @JoinColumn(name="DONEBYPERSON_CODE",  referencedColumnName="personCode")
+    @JoinColumn(name="DONEBYPERSON_CODE",  referencedColumnName="PERSON_CODE")
     @OneToOne
     private Person doneByPerson;
 

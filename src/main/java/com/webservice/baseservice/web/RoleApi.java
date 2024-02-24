@@ -1,7 +1,7 @@
 package com.webservice.baseservice.web;
 
-import com.webservice.baseservice.domain.dto.RoleDetails;
-import com.webservice.baseservice.domain.dto.RoleModel;
+import com.webservice.baseservice.domain.dto.role.RoleDetails;
+import com.webservice.baseservice.domain.dto.role.RoleModel;
 import com.webservice.baseservice.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import java.util.List;

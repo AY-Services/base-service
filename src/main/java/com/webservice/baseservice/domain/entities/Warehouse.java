@@ -39,10 +39,6 @@ public class Warehouse extends BaseEntity {
     private Boolean useWarehousePacking;
 
 
-    @JoinColumn(name="BRANCH_CODE",  referencedColumnName="branchCode")
-    @OneToOne
-    private Branch branch;
-
     @Column(name = "ONGOINGINVENTORY", nullable=false)
     private Boolean ongoingInventory;
 

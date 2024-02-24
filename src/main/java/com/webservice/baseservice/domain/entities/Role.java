@@ -33,41 +33,26 @@ public class Role extends BaseEntity {
     @Column(name = "NAME", length = 140, nullable = false)
     protected String name;
 
-    @JoinColumn(name = "UPROLE_CODE", referencedColumnName = "roleCode")
+    @JoinColumn(name = "UPROLE_CODE", referencedColumnName = "ROLE_CODE")
     @OneToOne
     private Role upRole;
 
-    @JoinColumn(name = "PROFILE_CODE", referencedColumnName = "profileCode")
-    @OneToOne
-    private Profile profile;
 
+    private String profile;
 
-    @JoinColumn(name = "DEVICESERIALNUMBER", referencedColumnName = "deviceSerialNumber")
-    @OneToOne
-    private Device device;
-
-
-    @JoinColumn(name = "GeoArea_CODE", referencedColumnName = "geoAreaCode")
+    @JoinColumn(name = "GeoArea_CODE", referencedColumnName = "GeoArea_CODE")
     @OneToOne
     private GeoArea geoArea;
 
-    @JoinColumn(name = "BRANCH_CODE", referencedColumnName = "branchCode")
-    @OneToOne
-    private Branch branch;
-
-    @JoinColumn(name = "PERSON_CODE", referencedColumnName = "personCode")
+    @JoinColumn(name = "PERSON_CODE", referencedColumnName = "PERSON_CODE")
     @OneToOne
     private Person person;
 
-    @JoinColumn(name = "TOKENSERIE_CODE", referencedColumnName = "tokenSerieCode")
-    @OneToOne
-    protected TokenSerie tokenSerie;
-
-    @JoinColumn(name = "WAREHOUSE_CODE", referencedColumnName = "warehouseCode")
+    @JoinColumn(name = "WAREHOUSE_CODE", referencedColumnName = "WAREHOUSE_CODE")
     @OneToOne
     protected Warehouse warehouse;
 
-    @JoinColumn(name = "FEEDEDFROMWAREHOUSE_CODE", referencedColumnName = "warehouseCode")
+    @JoinColumn(name = "FEEDEDFROMWAREHOUSE_CODE", referencedColumnName = "WAREHOUSE_CODE")
     @OneToOne
     protected Warehouse feededFromWarehouse;
 
@@ -80,13 +65,9 @@ public class Role extends BaseEntity {
     @Column(name = "ONLINE", nullable = false)
     private Boolean online;
 
-    @JoinColumn(name = "LASTSERVICE_CODE", referencedColumnName = "serviceCode")
+    @JoinColumn(name = "LASTSERVICE_CODE", referencedColumnName = "SERVICE_CODE")
     @OneToOne
     protected Service lastService;
-
-    @JoinColumn(name = "PRICELIST_CODE", referencedColumnName = "priceListCode")
-    @OneToOne
-    protected PriceList priceList;
 
     @Column(name = "USERFIELD1", nullable = true)
     private String userField1;
@@ -102,20 +83,6 @@ public class Role extends BaseEntity {
 
     @Column(name = "PHONE", nullable = true)
     private String phone;
-
-//	@Column(name="ROLECATEGORY_CODE", nullable=true)
-//	private String roleCetegoryCode;
-
-    @JoinColumn(name = "ROLECATEGORY_CODE", referencedColumnName = "roleCategoryCode")
-    @OneToOne
-    private RoleCategory roleCategory;
-
-    @JoinColumn(name = "ROLECATEGORYTYPE_CODE", referencedColumnName = "roleCategoryTypeCode")
-    @OneToOne
-    private RoleCategoryType roleCategoryType;
-
-//	@Column(name="ROLECATEGORYTYPE_CODE", nullable=true)
-//	private String roleCetegoryTypeCode;
 
     @Column(name = "SECURITYLEVEL", nullable = true)
     private Integer securityLevel;
@@ -134,33 +101,10 @@ public class Role extends BaseEntity {
     private List<Role> subRoles;
 
     @Transient
-    private List<RoleItinerary> roleItinerarys;
-
-    @Transient
     private int[] firstOrLast = {0, 0, 0, 0};
 
     @Column(name = "HOLD", nullable = true)
     private Boolean hold;
-
-    @JoinColumn(name = "ROLEANALYSISGROUP1_CODE", referencedColumnName = "roleAnalysisGroup1Code")
-    @OneToOne
-    protected RoleAnalysisGroup roleAnalysisGroup1;
-
-    @JoinColumn(name = "ROLEANALYSISGROUP2_CODE", referencedColumnName = "roleAnalysisGroup2Code")
-    @OneToOne
-    protected RoleAnalysisGroup roleAnalysisGroup2;
-
-    @JoinColumn(name = "ROLEANALYSISGROUP3_CODE", referencedColumnName = "roleAnalysisGroup3Code")
-    @OneToOne
-    protected RoleAnalysisGroup roleAnalysisGroup3;
-
-    @JoinColumn(name = "ROLEANALYSISGROUP4_CODE", referencedColumnName = "roleAnalysisGroup4Code")
-    @OneToOne
-    protected RoleAnalysisGroup roleAnalysisGroup4;
-
-    @JoinColumn(name = "ROLEANALYSISGROUP5_CODE", referencedColumnName = "roleAnalysisGroup5Code")
-    @OneToOne
-    protected RoleAnalysisGroup roleAnalysisGroup5;
 
     @Column(name = "DEVICESERIALNUMBER")
     private String deviceSerialNumber;

@@ -58,12 +58,11 @@ public class Person extends BaseEntity {
     @Column(name="LASTCONNECTIONDATE")
     private Date lastConnectionDate;
 
-    @JoinColumn(name="PROFILE_CODE",referencedColumnName="profileCode")
-    @OneToOne
-    private Profile profile;
+
+    private String profile;
 
 
-    @JoinColumn(name="LANGUAGE_CODE",referencedColumnName="languageCode")
+    @JoinColumn(name="LANGUAGE_CODE",referencedColumnName="LANGUAGE_CODE")
     @OneToOne
     private Language language;
 
@@ -75,10 +74,6 @@ public class Person extends BaseEntity {
 
     @Column(name="HOLD_REASON", nullable=true)
     private String hold_reason	;
-
-    @JoinColumn(name="BRANCH_CODE",referencedColumnName="branchCode")
-    @OneToOne
-    private Branch branch;
 
     @JoinColumn(name="CREATEDBYROLE_ID", referencedColumnName="id")
     @OneToOne

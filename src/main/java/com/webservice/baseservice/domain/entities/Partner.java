@@ -25,11 +25,11 @@ public class Partner extends BaseEntity {
     @Column(name="NAME2", nullable=true)
     private String name2;
 
-    @JoinColumn(name="UPPARTNER_CODE", referencedColumnName="partnerCode")
+    @JoinColumn(name="UPPARTNER_CODE", referencedColumnName="PARTNER_CODE")
     @OneToOne
     private Partner upPartner;
 
-    @JoinColumn(name="ROOTPARTNER_CODE", referencedColumnName="partnerCode")
+    @JoinColumn(name="ROOTPARTNER_CODE", referencedColumnName="PARTNER_CODE")
     @OneToOne
     private Partner rootPartner;
 
@@ -46,14 +46,6 @@ public class Partner extends BaseEntity {
     @Column(name="PARTNERIDTYPE_CODE", nullable=true)
     private String partneridtypeCode;
 
-    @JoinColumn(name="PARTNERCATEGORY_CODE", referencedColumnName="partnerCategoryCode")
-    @OneToOne
-    private PartnerCategory partnerCategory;
-
-    @JoinColumn(name="PARTNERCATEGORYTYPE_CODE", referencedColumnName="partnerCategoryTypeCode")
-    @OneToOne
-    private PartnerCategoryType partnerCategoryType;
-
     @Column(name="PARTNERSTATUS_CODE", nullable=false)
     private String partnerStatusCode;
 
@@ -68,63 +60,25 @@ public class Partner extends BaseEntity {
     private String questionnaireGroupCode;
 
 
-    @JoinColumn(name="PRODUCTATTRIBUTEGROUP1_CODE", referencedColumnName="productAttributeGroupCode")
-    @OneToOne
-    private ProductAttributeGroup productAttributeGroup1;
-
-    @JoinColumn(name="PRODUCTATTRIBUTEGROUP2_CODE", referencedColumnName="productAttributeGroupCode")
-    @OneToOne
-    private ProductAttributeGroup productAttributeGroup2;
-
-    @JoinColumn(name="PRODUCTATTRIBUTEGROUPPARAM_CODE", referencedColumnName="productAttributeGroupParamCode")
-    @OneToOne
-    private ProductAttributeGroupParam productAttributeGroupParam;
-
-    @JoinColumn(name="SALESCHANNEL_CODE", referencedColumnName="salesChannelCode")
+    @JoinColumn(name="SALESCHANNEL_CODE", referencedColumnName="SALESCHANNEL_CODE")
     @OneToOne
     private SalesChannel salesChannel;
 
-    @JoinColumn(name="GEOAREA_CODE", referencedColumnName="geoAreaCode")
+    @JoinColumn(name="GEOAREA_CODE", referencedColumnName="GEOAREA_CODE")
     @OneToOne
     private GeoArea geoArea;
-
-    @JoinColumn(name="ITINERARY_CODE", referencedColumnName="itineraryCode")
-    @OneToOne
-    private Itinerary itinerary;
-
-
 
     @Column(name="RANK", nullable=false)
     private Integer rank;
 
-    @JoinColumn(name="PARTNERCLUSTER_CODE", referencedColumnName="partnerClusterCode")
-    @OneToOne
-    private PartnerCluster partnerCluster;
 
     @Column(name="PARTNERSUBCLUSTER_CODE", nullable=false)
     private String partnerSubClusterCode;
 
 
-    @JoinColumn(name="PARTNERANALYSISGROUP1_CODE", referencedColumnName="partnerAnalysisGroup1Code")
+    @JoinColumn(name="PARTNERANALYSISGROUP1_CODE", referencedColumnName="PARTNERANALYSISGROUP_CODE")
     @OneToOne
-    protected PartnerAnalysisGroup1 partnerAnalysisGroup1;
-
-    @JoinColumn(name="PARTNERANALYSISGROUP2_CODE", referencedColumnName="partnerAnalysisGroup2Code")
-    @OneToOne
-    protected PartnerAnalysisGroup2 partnerAnalysisGroup2;
-
-    @JoinColumn(name="PARTNERANALYSISGROUP3_CODE", referencedColumnName="partnerAnalysisGroup3Code")
-    @OneToOne
-    protected PartnerAnalysisGroup3 partnerAnalysisGroup3;
-
-    @JoinColumn(name="PARTNERANALYSISGROUP4_CODE", referencedColumnName="partnerAnalysisGroup4Code")
-    @OneToOne
-    protected PartnerAnalysisGroup4 partnerAnalysisGroup4;
-
-    @JoinColumn(name="PARTNERANALYSISGROUP5_CODE", referencedColumnName="partnerAnalysisGroup5Code")
-    @OneToOne
-    protected PartnerAnalysisGroup5 partnerAnalysisGroup5;
-
+    protected PartnerAnalysisGroup partnerAnalysisGroup;
 
     @Column(name="NUM", nullable=true)
     private String num;
@@ -165,7 +119,7 @@ public class Partner extends BaseEntity {
     @Column(name="WEBADDRESS", nullable=true)
     private String webAddress;
 
-    @JoinColumn(name="ROLE_CODE", referencedColumnName="roleCode")
+    @JoinColumn(name="ROLE_CODE", referencedColumnName="ROLE_CODE")
     @OneToOne
     protected Role role;
 
@@ -182,17 +136,13 @@ public class Partner extends BaseEntity {
 
 
 
-    @JoinColumn(name="CURRENCY_CODE", referencedColumnName="currencyCode")
+    @JoinColumn(name="CURRENCY_CODE", referencedColumnName="CURRENCY_CODE")
     @OneToOne
     private Currency currency;
 
-    @JoinColumn(name="PAYMENTTERM_CODE", referencedColumnName="paymentTermCode")
+    @JoinColumn(name="PAYMENTTERM_CODE", referencedColumnName="PAYMENTTERM_CODE")
     @OneToOne
     protected PaymentTerm paymentTerm;
-
-    @JoinColumn(name="PRICELIST_CODE", referencedColumnName="priceListCode")
-    @OneToOne
-    protected PriceList priceList;
 
     @Column(name="VAT1_EXONERATION", nullable=false)
     private Boolean vat1Exoneration;
@@ -278,18 +228,13 @@ public class Partner extends BaseEntity {
     @Column(name="LASTSINVOICEDATE", nullable=true)
     private Date lastSInvoiceDate;
 
-
-    @JoinColumn(name="BRANCH_CODE", referencedColumnName="branchCode")
-    @OneToOne
-    private Branch branch;
-
     @Column(name="LONGITUDE", nullable=true)
     private Double longitude;
 
     @Column(name="LATITUDE", nullable=true)
     private Double latitude;
 
-    @JoinColumn(name="WAREHOUSE_CODE", referencedColumnName="warehouseCode")
+    @JoinColumn(name="WAREHOUSE_CODE", referencedColumnName="WAREHOUSE_CODE")
     @OneToOne
     private Warehouse warehouse;
 
@@ -312,7 +257,7 @@ public class Partner extends BaseEntity {
     private Double currentCredit2;
 
 
-    @JoinColumn(name="BANK_CODE", referencedColumnName="bankCode")
+    @JoinColumn(name="BANK_CODE", referencedColumnName="BANK_CODE")
     @OneToOne
     private Bank bank;
 
@@ -417,9 +362,6 @@ public class Partner extends BaseEntity {
 
     @Transient
     private List<PartnerSite> partnerSites;
-
-    @Transient
-    List<ItineraryPartner> itineraryPartners;
 
 
 }

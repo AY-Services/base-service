@@ -23,8 +23,6 @@ public abstract class BaseEntity {
     @Id
     private String id;
 
-    private Date createdAt;
-
     @Version
     @Column(name = "_version")
     private Long version;

@@ -3,10 +3,7 @@ package com.webservice.baseservice.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.webservice.baseservice.domain.Support.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,11 +20,9 @@ import java.util.Date;
 @Table(name="CONTRACT")
 public class Contract extends BaseEntity {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(name="CONTRACT_CODE", nullable=false)
-    private 	String	contractCode	;
+    private String	contractCode	;
 
     @Column(name="NAME", nullable=false)
     private 	String	name	;

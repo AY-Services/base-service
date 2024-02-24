@@ -27,11 +27,6 @@ public class Asset  extends BaseEntity {
     @Column(name="NAME", nullable=false)
     private 	String		name	;
 
-    @JoinColumn(name="ASSETPRODUCT_CODE", referencedColumnName="assetProductCode")
-    @OneToOne
-    private AssetProduct assetProduct;
-
-
     @Column(name="ASSETSTATUS_CODE")
     private String		assetStatusCode	;
 
@@ -52,50 +47,22 @@ public class Asset  extends BaseEntity {
     @Column(name="ASSETINVENTORY_CODE")
     private 	String		assetInventory_Code	;
 
-
-    @JoinColumn(name="BRANCH_CODE", referencedColumnName="branchCode")
-    @OneToOne
-    private Branch branch;
-
-
-    @JoinColumn(name="PARTNER_CODE", 		referencedColumnName="partnerCode")
+    @JoinColumn(name="PARTNER_CODE", referencedColumnName="PARTNER_CODE")
     @OneToOne
     private Partner partner;
 
-    @JoinColumn(name="PARTNERSITE_CODE", 		referencedColumnName="partnerSiteCode")
+    @JoinColumn(name="PARTNERSITE_CODE", referencedColumnName="PARTNERSITE_CODE")
     @OneToOne
     private PartnerSite partnerSite;
 
 
-    @JoinColumn(name="PARTNERCONTACT_CODE", 		referencedColumnName="partnerContactCode")
+    @JoinColumn(name="PARTNERCONTACT_CODE",	referencedColumnName="PARTNERCONTACT_CODE")
     @OneToOne
     private PartnerContact	partnerContact;
 
-
-    @JoinColumn(name="MNT_PARTNERCONTACT_CODE", 		referencedColumnName="partnerContactCode")
+    @JoinColumn(name="CONTRACT_CODE", referencedColumnName="CONTRACT_CODE")
     @OneToOne
-    private PartnerContact	mntPartnerContact;
-
-    @JoinColumn(name="CONTRACT_CODE", 		referencedColumnName="contractCode")
-    @OneToOne
-    private Contract	contract;
-
-
-    @JoinColumn(name="MNT_CONTRACT_CODE", 		referencedColumnName="contractCode")
-    @OneToOne
-    private Contract	mntContract;
-
-
-    @JoinColumns(
-            {
-                    @JoinColumn(name="ASSETCATEGORY_CODE", 		referencedColumnName="assetCategory.assetCategoryCode"),
-                    @JoinColumn(name="ASSETCATEGORYTYPE_CODE", 	referencedColumnName="assetCategoryTypeCode"),
-            })
-    @OneToOne
-    private AssetCategoryType	assetCategoryType;
-
-
-
+    private Contract contract;
 
     @Column(name="SERIALNUMBER", nullable=false)
     private 	String		serialNumber	;
