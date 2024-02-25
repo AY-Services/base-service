@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
@@ -17,25 +18,25 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="DOCUMENT")
+@Table(name="PARTNER_DOCUMENT")
 public class Document extends BaseEntity {
 
-    @Id
-    @Column(name="ID",nullable = false)
-    private Long _id;
+    @JoinColumn(referencedColumnName="id", nullable=false)
+    @OneToOne
+    private Partner partner;
 
-    @Column(name="CONTENT_BLOB")
-    private String	contentBlob;
+    @JoinColumn(referencedColumnName="id", nullable=false)
+    @OneToOne
+    private Document document;
+    private String documentType;
+    private String description;
 
-    @Column(name="CONTENT_TYPE")
-    private String	contentType;
-
-    @Column(name="CREATIONDATE")
-    private Date creationDate;
-
-    @Column(name = "LASTUPDATE", nullable=false) @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-
-
+    @PrePersist
+    private void onPrePersist(){
+        if(this.getId()== null){
+            this.setId("document_"+ UUID.randomUUID().toString());
+        }
+        this.setCreated_at(new Date());
+    }
 }
 

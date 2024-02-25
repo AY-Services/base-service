@@ -1,10 +1,6 @@
 package com.webservice.baseservice.domain.entities;
 
-
-
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.webservice.baseservice.domain.Support.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,29 +11,32 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.UUID;
 
-
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-public class Brand extends BaseEntity {
-
-    private String brandCode;
+public class WareHouse extends BaseEntity {
+    private String warehouseCode;
+    @Column(length = 140, nullable=false)
     private String name;
-    private Integer rank;
+    private Double globalVolume;
+    private Double globalWeight;
+    private Boolean isManaged;
+    private Boolean useWarehousePacking;
+    private Boolean ongoingInventory;
 
     @PrePersist
     public void onPrePersiste(){
-        if(this.getBrandCode() == null){
-            this.setBrandCode("brandCode_"+ UUID.randomUUID().toString());
+        if(this.warehouseCode == null){
+            this.setWarehouseCode("warehouseCode_"+ UUID.randomUUID().toString());
         }
         if(this.getId() == null){
-            this.setId("brand_"+ UUID.randomUUID().toString());
+            this.setId("wareHouse_"+UUID.randomUUID().toString());
         }
         this.setCreated_at(new Date());
     }
-
 }
+

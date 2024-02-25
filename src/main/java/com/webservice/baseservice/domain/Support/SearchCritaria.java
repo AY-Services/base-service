@@ -36,12 +36,6 @@ public class SearchCritaria {
 
     private Brand brand;
 
-
-    private Vat vat1;
-
-
-    private Vat vat2;
-
     private Boolean hold	;
 
     private String holdReason	;

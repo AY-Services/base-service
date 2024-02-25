@@ -1,34 +1,36 @@
 package com.webservice.baseservice.service;
 
-import com.webservice.baseservice.domain.Support.SearchCritaria;
 import com.webservice.baseservice.domain.dto.product.ProductDetails;
 import com.webservice.baseservice.domain.dto.product.ProductModel;
+import com.webservice.baseservice.domain.entities.Brand;
 import com.webservice.baseservice.domain.entities.Product;
 import com.webservice.baseservice.domain.mappers.ProductMapper;
+import com.webservice.baseservice.domain.repository.BrandRepository;
 import com.webservice.baseservice.domain.repository.ProductRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 public class ProductService {
 
-    private ProductRepository productRepository;
-    private ProductMapper productMapper;
+    private final ProductRepository productRepository;
+    private final BrandRepository brandRepository;
+    private final ProductMapper productMapper;
 
-    public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
+    public ProductService(ProductRepository productRepository, BrandRepository brandRepository, ProductMapper productMapper) {
         this.productRepository = productRepository;
+        this.brandRepository = brandRepository;
         this.productMapper = productMapper;
     }
 
 
     public ProductDetails createProduct(ProductModel productModel) {
         Product product_db_Mapper = productMapper.fromModelToDb(productModel);
+        Brand brand = product_db_Mapper.getBrand();
+        product_db_Mapper.setBrand(null);
+        Brand brandDb = brandRepository.save(brand);
         Product productDB = productRepository.save(product_db_Mapper);
+        productDB.setBrand(brandDb);
         ProductDetails productDetails = productMapper.fromDbToDetails(productDB);
         return productDetails;
     }
