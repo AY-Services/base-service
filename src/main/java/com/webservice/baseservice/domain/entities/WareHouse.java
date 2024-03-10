@@ -17,7 +17,6 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
 public class WareHouse extends BaseEntity {
     private String warehouseCode;
     @Column(length = 140, nullable=false)

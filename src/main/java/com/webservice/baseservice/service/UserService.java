@@ -2,13 +2,7 @@ package com.webservice.baseservice.service;
 
 
 import com.webservice.baseservice.domain.dto.user.UserDetails;
-import com.webservice.baseservice.domain.dto.user.UserDetails;
-import com.webservice.baseservice.domain.dto.user.UserDetails;
 import com.webservice.baseservice.domain.dto.user.UserModel;
-import com.webservice.baseservice.domain.dto.user.UserDetails;
-import com.webservice.baseservice.domain.dto.user.UserModel;
-import com.webservice.baseservice.domain.entities.User;
-import com.webservice.baseservice.domain.entities.User;
 import com.webservice.baseservice.domain.entities.User;
 import com.webservice.baseservice.domain.mappers.UserMapper;
 import com.webservice.baseservice.domain.repository.UserRepository;

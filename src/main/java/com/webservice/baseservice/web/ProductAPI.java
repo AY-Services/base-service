@@ -1,7 +1,7 @@
 package com.webservice.baseservice.web;
 
 
-import com.webservice.baseservice.domain.Support.SearchCritaria;
+import com.webservice.baseservice.domain.Support.ProductSearch;
 import com.webservice.baseservice.domain.dto.product.ProductDetails;
 import com.webservice.baseservice.domain.dto.product.ProductModel;
 import com.webservice.baseservice.service.ProductService;
@@ -33,8 +33,8 @@ public class ProductAPI {
     }
 
 
-    /*protected List<ProductDetails> findAllByFilter(SearchCritaria searchCritaria) {
-        return productService.findAllByFilter(searchCritaria);
+    /*protected List<ProductDetails> findAllByFilter(ProductSearch productSearch) {
+        return productService.findAllByFilter(productSearch);
     }*/
 }
 

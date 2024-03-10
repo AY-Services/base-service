@@ -3,8 +3,6 @@ package com.webservice.baseservice.service;
 
 import com.webservice.baseservice.domain.dto.document.DocumentDetails;
 import com.webservice.baseservice.domain.dto.document.DocumentModel;
-import com.webservice.baseservice.domain.dto.document.DocumentDetails;
-import com.webservice.baseservice.domain.entities.Document;
 import com.webservice.baseservice.domain.entities.Document;
 import com.webservice.baseservice.domain.mappers.DocumentMapper;
 import com.webservice.baseservice.domain.repository.DocumentRepository;

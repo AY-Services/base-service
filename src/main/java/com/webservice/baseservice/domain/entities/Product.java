@@ -17,7 +17,6 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
 public class Product extends BaseEntity {
 
     private String productCode	;
@@ -28,7 +27,7 @@ public class Product extends BaseEntity {
     private Double purchasePrice;
     private Double returnPrice;
     private String currencyCode;
-    @JoinColumn(referencedColumnName="brandCode")
+    @JoinColumn(referencedColumnName="id")
     @OneToOne
     private Brand brand;
     private Boolean hold;
