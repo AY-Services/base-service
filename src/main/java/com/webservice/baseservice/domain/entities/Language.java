@@ -4,21 +4,33 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.webservice.baseservice.domain.Support.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+import java.util.Date;
+import java.util.UUID;
+
 @Entity
-@Table(name="LANGUAGE")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Language extends BaseEntity {
 
-    @Column(name="LANGUAGE_CODE")
     private String languageCode;
-
-    @Column(name="NAME")
     private String name;
-
-    @Column(name="RANK")
     private Integer rank;
 
-
+    @PrePersist
+    private void onPrePersist(){
+        if(this.getId()== null){
+            this.setId("language_"+ UUID.randomUUID().toString());
+        }
+        this.setCreated_at(new Date());
+    }
 }

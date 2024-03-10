@@ -1,5 +1,7 @@
 package com.webservice.baseservice.domain.mappers;
 
+import com.webservice.baseservice.domain.Support.ProductSearch;
+import com.webservice.baseservice.domain.Support.ProductFilter;
 import com.webservice.baseservice.domain.dto.product.ProductDetails;
 import com.webservice.baseservice.domain.dto.product.ProductModel;
 import com.webservice.baseservice.domain.entities.Product;
@@ -15,4 +17,6 @@ public interface ProductMapper {
     List<ProductDetails> fromDbToDetails(List<Product> result);
 
     ProductDetails fromDbToDetails(Product newProduct);
+
+    ProductFilter productSearchToProductFilter(ProductSearch productSearch);
 }
