@@ -12,16 +12,18 @@ import java.util.Date;
 import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Entity
+@Entity(name = "Users")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
 public class User extends BaseEntity {
 
     private String userCode	;
     private String name	;
+    @JoinColumn(name = "created_by")
+    @ManyToOne
+    private User createdBy;
     private String firstName	;
     private String phone	;
     private String cellularPhone	;
@@ -37,15 +39,12 @@ public class User extends BaseEntity {
     private String login;
     private Date lastConnectionDate;
     private String profile;
-    @JoinColumn(referencedColumnName="languageCode")
+    @JoinColumn(referencedColumnName="id")
     @OneToOne
     private Language language;
     private Integer requiredControlNumber	;
     private Boolean hold	;
     private String hold_reason	;
-    @JoinColumn(referencedColumnName="id")
-    @OneToOne
-    protected User createdByUser;
     private String userField1	;
     private String userField2	;
     private Integer securityLevel	;

@@ -5,17 +5,23 @@ import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.webservice.baseservice.domain.Support.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@JsonInclude(Include.NON_NULL)
 @Entity
-@Table
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Partner extends BaseEntity {
     private String partnerCode;
     private String name;
-    @JoinColumn(referencedColumnName="partnerCode")
+    @JoinColumn(referencedColumnName="id")
     @OneToOne
     private Partner upPartner;
     private String barcode;
@@ -57,10 +63,10 @@ public class Partner extends BaseEntity {
     private String holdReason;
     private Boolean common;
     private Date lastOrderDate;
-    @JoinColumn(referencedColumnName="warehouseCode")
+    @JoinColumn(referencedColumnName="id")
     @OneToOne
     private WareHouse warehouse;
-    @JoinColumn(referencedColumnName="bankCode")
+    @JoinColumn(referencedColumnName="id")
     @OneToOne
     private Bank bank;
     @Transient

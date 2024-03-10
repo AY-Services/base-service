@@ -16,13 +16,12 @@ import java.util.Date;
 import java.util.UUID;
 
 
-@JsonInclude(Include.NON_NULL)
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Brand extends BaseEntity {
 
     private String brandCode;

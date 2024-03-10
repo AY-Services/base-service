@@ -1,5 +1,7 @@
 package com.webservice.baseservice.service;
 
+import com.webservice.baseservice.domain.Support.ProductFilter;
+import com.webservice.baseservice.domain.Support.ProductSearch;
 import com.webservice.baseservice.domain.dto.product.ProductDetails;
 import com.webservice.baseservice.domain.dto.product.ProductModel;
 import com.webservice.baseservice.domain.entities.Brand;
@@ -9,6 +11,10 @@ import com.webservice.baseservice.domain.repository.BrandRepository;
 import com.webservice.baseservice.domain.repository.ProductRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -50,8 +56,9 @@ public class ProductService {
 
     }
 
-    /*public List<ProductDetails> findAllByFilter(SearchCritaria searchCritaria) {
-        List<Product> productsList = productRepository.findAllProductsBySearchCriteria(searchCritaria);
+    /*public List<ProductDetails> findAllByFilter(ProductSearch productSearch) {
+        ProductFilter productFilter = productMapper.productSearchToProductFilter(productSearch);
+        List<Product> productsList = productRepository.findByProductFilter(productFilter);
         List<ProductDetails> productDetailsList = Collections.emptyList();
 
         if(productsList != null){

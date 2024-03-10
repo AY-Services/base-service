@@ -1,11 +1,21 @@
 package com.webservice.baseservice.domain.Support;
 
-import com.webservice.baseservice.domain.entities.*;
+import com.webservice.baseservice.domain.entities.Brand;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-public class SearchCritaria {
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+@Getter
+@Setter
+public class ProductFilter implements Serializable {
 
     private String id;
 
@@ -13,32 +23,31 @@ public class SearchCritaria {
 
 
     private Long version;
-
     private Date created_at;
     private String	productCode	;
 
-    private String		name	;
+    private String name;
 
-    private String longDescription	;
+    private String longDescription;
 
     private Integer rank;
 
-    private Double salesPrice	;
+    private Double salesPrice;
 
 
-    private Double purchasePrice	;
+    private Double purchasePrice;
 
-    private Double returnPrice	;
+    private Double returnPrice;
 
 
-    private String currencyCode	;
+    private String currencyCode;
 
 
     private Brand brand;
 
-    private Boolean hold	;
+    private Boolean hold;
 
-    private String holdReason	;
+    private String holdReason;
 
     private Integer purchasePacking	;
 
@@ -123,15 +132,6 @@ public class SearchCritaria {
     private Double loyaltyProgramScoreWhenOutStock;
 
 
-
-
-
-    // Temporary use
-    //----------------------------------------------------------------------------------------------------------
-
-    private byte[]	photo1;
-
-
     private String productCategoryCode;
 
 
@@ -154,8 +154,5 @@ public class SearchCritaria {
 
 
     private String photoUrl;
-
-
-
 
 }

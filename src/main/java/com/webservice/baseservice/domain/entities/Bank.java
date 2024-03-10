@@ -18,7 +18,6 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
 public class Bank extends BaseEntity {
 
     private String bankCode;

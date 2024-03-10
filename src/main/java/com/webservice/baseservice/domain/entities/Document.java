@@ -12,13 +12,13 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.UUID;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="PARTNER_DOCUMENT")
+@Table(name = "Documents")
 public class Document extends BaseEntity {
 
     @JoinColumn(referencedColumnName="id", nullable=false)

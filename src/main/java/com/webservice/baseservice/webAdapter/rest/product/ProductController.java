@@ -1,6 +1,6 @@
 package com.webservice.baseservice.webAdapter.rest.product;
 
-import com.webservice.baseservice.domain.Support.SearchCritaria;
+import com.webservice.baseservice.domain.Support.ProductSearch;
 import com.webservice.baseservice.domain.dto.product.ProductDetails;
 import com.webservice.baseservice.domain.dto.product.ProductModel;
 import com.webservice.baseservice.service.ProductService;
@@ -33,9 +33,9 @@ public class ProductController extends ProductAPI {
         return super.updateProduct(id, productModel);
     }
 
-    /*@GetMapping("/findByFilter")
-    public List<ProductDetails> findAllByFilter(SearchCritaria searchCritaria){
-        return super.findAllByFilter(searchCritaria);
+    /*@GetMapping("/findAllByFilter")
+    public List<ProductDetails> findAllByFilter(ProductSearch productSearch){
+        return super.findAllByFilter(productSearch);
     }*/
 
 
